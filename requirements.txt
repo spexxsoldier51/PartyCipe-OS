@@ -1,5 +1,4 @@
 gunicorn==19.5.0
-psycopg2-binary==2.8.5
 whitenoise==3.3.1
 asgiref==3.5.0
 beautifulsoup4==4.10.0
