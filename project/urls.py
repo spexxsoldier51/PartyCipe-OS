@@ -23,12 +23,12 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
+     path('', index, name='home'),
 
     path('accounts/', include('django.contrib.auth.urls')),
     path('signup/', SignUpView.as_view(), name='signup'),
 
-    path('', index, Home),
+    path('partycipe', Home),
 
     path('party/join', JoinParty),
     path('party/partipate', JoinParty),
