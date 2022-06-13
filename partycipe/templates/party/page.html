@@ -1,0 +1,30 @@
+<!-- templates/registration/signup.html -->
+{% extends "base.html" %}
+
+{% block title %}Rejoindre{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<script>
+  var url_mail = window.location.href+"/mail"
+    var a = document.createElement("a");
+</script>
+  <h2>{{ party.name }}</h2>
+  <label><b>Résumé :</b></label> {{ party.resume }} <br>
+  <label><b>Lieux :</b></label> {{ party.place }} <br>
+  <label><b>Date :</b></label> {{ party.datehour }} <br>
+  <label><b>Prix :</b></label> {{ party.price }} <br>
+  <label><b>Lien Paypal :</b></label> <a href="{{ party.paypal }}">{{ party.paypal }}</a>
+  <h3> Liste des participants :</h3>
+    {% for obj in participate %}
+      {{obj.utilisateur}}<br/>
+    {% endfor %}
+  <a href="""><button id="mail" class="btn btn-primary">Envoyer un mail aux participants</button></a>
+
+{% else %}
+  <h2>Bienvenue</h2>
+  <p>Vous n'êtes pas connecté</p>
+  <a href="{% url 'login' %}"><button class="btn btn-primary">Se connecter</button></a>
+  <a href="{% url 'signup' %}"><button class="btn btn-primary">S'inscrire</button></a>
+{% endif %}
+{% endblock %}

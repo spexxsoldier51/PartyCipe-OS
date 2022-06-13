@@ -1,0 +1,25 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% load render_table from django_tables2 %}
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Bonjour {{ user.username }} !
+  <p><a href="{% url 'logout' %}">Déconnexion</a></p>
+  <a href="party/create"><button class="btn btn-primary">Créer une soirée</button></a>
+  <a href="party/join"><button class="btn btn-primary">Rejoindre une soirée</button></a>
+<h3>Mes prochaines soirées :</h3>
+  {% render_table table %}
+<h3>Les soirées que j'organise :</h3>
+  {% render_table table2 %}
+
+
+
+{% else %}
+  <h2>Bienvenue</h2>
+  <p>Vous n'êtes pas connecté</p>
+  <a href="{% url 'login' %}"><button class="btn btn-primary">Se connecter</button></a>
+  <a href="{% url 'signup' %}"><button class="btn btn-primary">S'inscrire</button></a>
+{% endif %}
+{% endblock %}
