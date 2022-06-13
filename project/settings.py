@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'partycipe',
     'bootstrap5',
     'django_tables2'
+    'welcome'
 ]
 
 MIDDLEWARE = [
