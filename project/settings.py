@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'partycipe',
     'bootstrap5',
-    'django_tables2'
+    'django_tables2',
     'welcome'
 ]
 
